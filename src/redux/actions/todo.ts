@@ -8,3 +8,21 @@ export const create = (item: Todo): Action => {
     }
   }
 }
+
+export const deleteActionCreator = (item: Todo): Action => {
+  return {
+    type: 'todo/delete/item',
+    payload: {
+      item: item
+    }
+  }
+}
+
+export const changeStatusActionCreator = (item: Todo): Action => {
+  return {
+    type: 'todo/change/item/status',
+    payload: {
+      item: item
+    }
+  }
+}

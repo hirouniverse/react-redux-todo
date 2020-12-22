@@ -41,6 +41,7 @@ export const todoReducer = (state: TodoState = {items: [], filter: 'all'}, actio
         filter: state.filter
       }
     case 'todo/change/item/title':
+      return state;
     case 'todo/change/item/status':
       if (!action.payload || !action.payload.item) {
         return state;
@@ -48,7 +49,11 @@ export const todoReducer = (state: TodoState = {items: [], filter: 'all'}, actio
       return {
         items: state.items.filter(item => {
           if (item.id === action.payload.item?.id) {
-            return action.payload.item;
+            return {
+              id: item.id,
+              title: item.title,
+              status: !item.status
+            };
           }
           return item;
         }),

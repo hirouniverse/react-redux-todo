@@ -1,11 +1,10 @@
 import { FC } from 'react';
 import { Dispatch } from 'redux';
 
-type Dummy = () => void
 type TProps = {
     title: string,
     color: string,
-    onClick?: Dispatch | Dummy
+    onClick?: () => void
 }
 
 export const TodoControl: FC<TProps> = ({ title, onClick, color }) => {
