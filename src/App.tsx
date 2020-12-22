@@ -1,24 +1,18 @@
 import { FC } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { increment, decrement, incrementWithAmount, decrementWithAmount } from './redux/actions/counter';
+
+import { Counter } from './components/lv2/Counter';
+
 import { create } from './redux/actions/todo';
 
 import { TodoState } from './redux/reducers/todos';
 
 export const App: FC = () => {
-  const counter = useSelector<{ counter: number }, any>(state => state.counter);
   const todo: TodoState = useSelector<{todo: TodoState}, any>(state => state.todo)
   const dispatch = useDispatch();
   return (
     <div className="App">
-      <h1>Hello World.</h1>
-      <h2>{ counter }</h2>
-      <div>
-        <button onClick={() => dispatch(increment())}>increment</button>
-        <button onClick={() => dispatch(decrement())}>decrement</button>
-        <button onClick={() => dispatch(incrementWithAmount(2))}>increment 2</button>
-        <button onClick={() => dispatch(decrementWithAmount(2))}>decrement 2</button>
-      </div>
+      <Counter incrementAmount={2} decrementAmount={2} />
       <h2>Todo</h2>
       <div>
         <button onClick={() => {

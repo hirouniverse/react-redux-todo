@@ -1,6 +1,11 @@
 import { Action } from '../actions/counter'
 
-export const counterReducer = (state: number = 0, action: Action) => {
+export type CounterState = number;
+export interface ICounterState {
+  counter: number
+}
+
+export const counterReducer = (state: CounterState = 0, action: Action) => {
   switch (action.type) {
     case 'counter/increment':
       return state + 1;
