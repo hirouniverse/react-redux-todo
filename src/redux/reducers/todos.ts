@@ -47,12 +47,12 @@ export const todoReducer = (state: TodoState = {items: [], filter: 'all'}, actio
         return state;
       }
       return {
-        items: state.items.filter(item => {
+        items: state.items.map(item => {
           if (item.id === action.payload.item?.id) {
             return {
               id: item.id,
               title: item.title,
-              status: !item.status
+              status: !action.payload.item.status
             };
           }
           return item;
